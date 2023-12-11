@@ -5,6 +5,19 @@
     <title>Horloge SVG</title>
 </head>
 <body>
-
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300px" height="300px" viewBox="-100 -100 200 200">
+    <!-- cadre... -->
+    <rect id="Base" x="-100" y="-100" width="200" height="200" fill="#CF803D" />
+    <!-- cadran... -->
+    <circle id="Cadran" cx="0" cy="0" r="80" stroke="#FCCE7B" stroke-width="10" fill="white" />
+    <!-- points des heures    -->
+    <circle id="Indicateur"  cx="0" cy="0" r="70" stroke="#B6705F" stroke-width="6" stroke-dasharray="5 31.6619148333" stroke-dashoffset="2.5" fill="none" />
+    <!-- Aiguilles-->
+    <g stroke="#5f4c6c" stroke-linecap="round">
+        <line id="SVG_heures" x1="0" y1="0" x2="0," y2="-30" stroke-width="8" />
+        <line id="SVG_minutes" x1="0"  y1="0" x2="0,"  y2="-45" stroke-width="6" />
+        <line id="SVG_secondes" x1="0" y1="0" x2="0," y2="-70" stroke-width="3" />
+    </g>
+</svg>
 </body>
 </html>
