@@ -3,73 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <title>Horloge SVG</title>
+    <style>
+        body {
+            width: 100%;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            background: rgb(48,9,42);
+            background: linear-gradient(0deg, rgba(48,9,42,1) 0%, rgba(101,14,92,1) 35%, rgba(187,23,164,1) 100%);
+        }
+        #dessin {
+            margin-top: 1em;
+        }
+
+        #oeuil1, #oeuil2 {
+            animation: 2s slide infinite;
+        }
+
+        #pate1 {
+            transform-origin: 900px 430px;
+            animation: 2s papate infinite;
+        }
+        #pate2 {
+            transform-origin: 1160px 430px;
+            animation: 2s papate2 infinite;
+        }
+        #queue {
+            transform-origin: 1033px 700px;
+            animation: 2s swing ease-in-out infinite;
+        }
+
+
+        @keyframes slide {
+            from {
+                translate: 15px;
+            }
+
+            50% {
+                translate: -15px;
+            }
+
+            to {
+                translate: 15px;
+            }
+
+        }
+
+        @keyframes papate {
+            from {
+                transform: rotate(20deg);
+            }
+            50%{
+                transform: rotate(-20deg);
+            }
+            to {
+                transform: rotate(20deg);
+            }
+        }
+
+        @keyframes papate2 {
+            from {
+                transform: rotate(-20deg);
+            }
+            50%{
+                transform: rotate(20deg);
+            }
+            to {
+                transform: rotate(-20deg);
+            }
+        }
+
+        @keyframes swing {
+            from{
+                transform : rotate(40deg);
+            }
+            50%{
+                transform : rotate(-20deg);
+            }
+            to {
+                transform : rotate(40deg);
+            }
+        }
+
+    </style>
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" width="600px" height="880px" viewBox="740 10 580 880">
-    <defs>
-        <style>
-            .cls-3{fill:#f4dcf3;}
-            .cls-4{fill:#f8e;}
-            .cls-5{fill:#fff;}
-            .cls-6{fill:none;stroke:#f8e;stroke-miterlimit:10;stroke-width:3px;}
-            .cls-7{fill:#cad12f;}
-        </style>
-    </defs>
-    <g id="Licorne">
-        <g id="horloge">
-            <circle class="cls-3" cx="1033" cy="540" r="191"/>
-            <circle id="Cadran" cx="1033" cy="540" r="120" stroke="#F8E" stroke-width="10" fill="white" />
-
-            <circle id="Indicateur"  cx="1033" cy="540" r="100" stroke="#cad12f" stroke-width="6" stroke-dasharray="5 47.748" stroke-dashoffset="9" fill="none" />
-            <g id="aiguilles" stroke="#5f4c6c" stroke-linecap="round">
-                <line id="Heures" x1="1033" y1="540" x2="1033" y2="510" stroke-width="8" />
-                <line id="Minutes" x1="1033"  y1="540" x2="1033"  y2="495" stroke-width="6" />
-                <line id="Secondes" x1="1033" y1="540" x2="1033" y2="470" stroke-width="3" />
+<div id="dessin">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1000px" height="880px" viewBox="740 10 580 880">
+        <defs>
+            <style>
+                .cls-3{fill:#f4dcf3;}
+                .cls-4{fill:#f8e;}
+                .cls-5{fill:#fff;}
+                .cls-6{fill:none;stroke:#f8e;stroke-miterlimit:10;stroke-width:3px;}
+                .cls-7{fill:#cad12f;}
+            </style>
+        </defs>
+        <g id="Licorne">
+            <g id="horloge">
+                <path id="queue" class="cls-4" d="m 1033 700 c 28.125 0.945 35.0625 19.1025 48.75 81 l -15 -6.75 c 12.45 17.685 -3.975 39.42 -1.0875 82.4175 l -12.1875 -53.325 c -1.125 37.26 6.3 64.4625 -18.375 82.4175 c 6.3375 -60.8175 -10.5375 -91.665 -7.125 -129.6675 l -11.4375 5.535 c -5.4 -54.3375 10.9875 -60.8175 16.4625 -61.6275"/>
+                <circle class="cls-3" cx="1033" cy="540" r="191"/>
+                <circle id="Cadran" cx="1033" cy="540" r="120" stroke="#F8E" stroke-width="10" fill="white" />
+                <circle id="Indicateur"  cx="1033" cy="540" r="100" stroke="#cad12f" stroke-width="6" stroke-dasharray="5 47.748" stroke-dashoffset="9" fill="none" />
+                <g id="aiguilles" stroke="#5f4c6c" stroke-linecap="round">
+                    <line id="Heures" x1="1033" y1="540" x2="1033" y2="510" stroke-width="8" />
+                    <line id="Minutes" x1="1033"  y1="540" x2="1033"  y2="495" stroke-width="6" />
+                    <line id="Secondes" x1="1033" y1="540" x2="1033" y2="470" stroke-width="3" />
+                </g>
             </g>
+            <g id="pates">
+                <g id="pate1">
+                    <path class="cls-3" d="M7083.24,7109.24l-128-128-49.5,49.5,128,128a35,35,0,0,0,49.5,0h0A35,35,0,0,0,7083.24,7109.24Z" transform="translate(-6157.5 -6702.5)"/>
+                    <path class="cls-4" d="M6954.89,6980.91a44.91,44.91,0,0,0-10-6.81c-9.51-4.74-24.33-7.67-39.14,7.16h0c-14.8,14.8-11.9,29.6-7.17,39.11a44.33,44.33,0,0,0,6.82,10l.35.37,49.5-49.5Z" transform="translate(-6157.5 -6702.5)"/>
+                </g>
+                <g id="pate2">
+                    <path class="cls-3" d="M7292,7115.24l128-128,49.5,49.5-128,128a35,35,0,0,1-49.5,0h0A35,35,0,0,1,7292,7115.24Z" transform="translate(-6157.5 -6702.5)"/>
+                    <path class="cls-4" d="M7420.37,6986.91a44.75,44.75,0,0,1,10-6.81c9.51-4.74,24.33-7.67,39.15,7.16h0c14.79,14.8,11.89,29.6,7.17,39.11a45,45,0,0,1-6.82,10l-.35.37-49.5-49.5Z" transform="translate(-6157.5 -6702.5)"/>
+                </g>
+                <g id="pate3">
+                    <path class="cls-3" d="M7063.75,7367.13l-60.82,170.47,65.93,23.53,60.82-170.48a35,35,0,0,0-21.2-44.73h0A35,35,0,0,0,7063.75,7367.13Z" transform="translate(-6157.5 -6702.5)"/>
+                    <path class="cls-4" d="M7002.77,7538.08a45.07,45.07,0,0,0-1.87,11.95c-.21,10.62,3.49,25.26,23.24,32.3h0c19.71,7,31.84-1.93,38.41-10.27a45,45,0,0,0,6.13-10.46c.12-.3.18-.47.18-.47l-65.93-23.53S7002.87,7537.77,7002.77,7538.08Z" transform="translate(-6157.5 -6702.5)"/>
+                </g>
+                <g id="pate4">
+                    <path class="cls-3" d="M7306.87,7367.13l60.82,170.47-65.93,23.53-60.82-170.48a35,35,0,0,1,21.2-44.73h0A35,35,0,0,1,7306.87,7367.13Z" transform="translate(-6157.5 -6702.5)"/>
+                    <path class="cls-4" d="M7367.85,7538.08a45.07,45.07,0,0,1,1.87,11.95c.21,10.62-3.49,25.26-23.24,32.3h0c-19.71,7-31.84-1.93-38.41-10.27a45,45,0,0,1-6.13-10.46c-.12-.3-.18-.47-.18-.47l65.93-23.53S7367.75,7537.77,7367.85,7538.08Z" transform="translate(-6157.5 -6702.5)"/>
+                </g>
+                </g>
+            <g id="oreilles">
+                <g id="oreille-d">
+                    <path class="cls-3" d="M7296.12,6866s32.54-80.85-4.46-104.85-46.71,66.95-46.71,66.95S7292.58,6850.8,7296.12,6866Z" transform="translate(-6157.5 -6702.5)"/>
+                    <path class="cls-4" d="M7290.18,6849s22.67-56.32-3.11-73-32.54,46.64-32.54,46.64S7287.71,6838.4,7290.18,6849Z" transform="translate(-6157.5 -6702.5)"/>
+                </g>
+                <g id="oreille-g">
+                    <path class="cls-3" d="M7084,6866.35s-32.54-80.85,4.46-104.85,46.71,66.95,46.71,66.95S7087.58,6851.2,7084,6866.35Z" transform="translate(-6157.5 -6702.5)"/>
+                    <path class="cls-4" d="M7090,6849.35s-22.67-56.32,3.1-73,32.54,46.64,32.54,46.64S7092.45,6838.8,7090,6849.35Z" transform="translate(-6157.5 -6702.5)"/>
+                </g>
+            </g>
+            <g id="visage">
+                <path id="Tete" class="cls-3" d="M7077.5,6961.5c0,85.6,51.59,131,114,131s112-45.4,112-131,13-138-113-138S7077.5,6875.9,7077.5,6961.5Z" transform="translate(-6157.5 -6702.5)"/>
+                <g id="yeux">
+                    <circle class="cls-5" cx="1137" cy="212" r="37"/>
+                    <circle id="oeuil1" cx="1137" cy="212" r="19.3"/>
+                    <circle class="cls-5" cx="928" cy="213" r="37"/>
+                    <circle id="oeuil2" cx="928" cy="213" r="19.3"/>
+                </g>
+                <path id="separator" class="cls-6" d="M7086,7017c59-45.89,148.67-45.89,209,0" transform="translate(-6157.5 -6702.5)"/>
+                <path id="criniere" class="cls-4" d="M7262.5,6885.5c.76-15-3.92-27.53-17.55-36.15h17.55c-8.9-13.38-15.29-32.58-32-32.85l5-20c-49-8-78.87,8-100.29,42-12.36,24,8.15,42.83,39.29,60l-1.85-22.58s19.73,8.12,40.79,4.35S7262.5,6885.5,7262.5,6885.5Z" transform="translate(-6157.5 -6702.5)"/>
+                <g id="nez">
+                    <ellipse id="nez2" cx="1043.5" cy="311" rx="3.5" ry="12"/>
+                    <ellipse id="nez1" cx="1021.5" cy="311" rx="3.5" ry="12"/>
+                </g>
+                <path id="langue" class="cls-4" d="M7215.5,7069.5c0,25.13-11,45.5-24.5,45.5s-24.5-20.37-24.5-45.5Z" transform="translate(-6157.5 -6702.5)"/>
+            </g>
+            <path id="Corne" class="cls-7" d="M7149.5,6847.5h0c27,19,58.12,16.22,90,0h0l-20.79-126.18c-.81-8.27-12.2-9.85-15.23-2.11Z" transform="translate(-6157.5 -6702.5)"/>
         </g>
-        <g id="pates">
-            <path class="cls-3" d="M7083.24,7109.24l-128-128-49.5,49.5,128,128a35,35,0,0,0,49.5,0h0A35,35,0,0,0,7083.24,7109.24Z" transform="translate(-6157.5 -6702.5)"/>
-            <path class="cls-4" d="M6954.89,6980.91a44.91,44.91,0,0,0-10-6.81c-9.51-4.74-24.33-7.67-39.14,7.16h0c-14.8,14.8-11.9,29.6-7.17,39.11a44.33,44.33,0,0,0,6.82,10l.35.37,49.5-49.5Z" transform="translate(-6157.5 -6702.5)"/>
-
-            <path class="cls-3" d="M7292,7115.24l128-128,49.5,49.5-128,128a35,35,0,0,1-49.5,0h0A35,35,0,0,1,7292,7115.24Z" transform="translate(-6157.5 -6702.5)"/>
-            <path class="cls-4" d="M7420.37,6986.91a44.75,44.75,0,0,1,10-6.81c9.51-4.74,24.33-7.67,39.15,7.16h0c14.79,14.8,11.89,29.6,7.17,39.11a45,45,0,0,1-6.82,10l-.35.37-49.5-49.5Z" transform="translate(-6157.5 -6702.5)"/><polygon class="cls-3" points="866.64 879.83 866.64 879.83 866.64 879.83 866.64 879.83"/>
-
-            <path class="cls-3" d="M7063.75,7367.13l-60.82,170.47,65.93,23.53,60.82-170.48a35,35,0,0,0-21.2-44.73h0A35,35,0,0,0,7063.75,7367.13Z" transform="translate(-6157.5 -6702.5)"/>
-            <path class="cls-4" d="M7002.77,7538.08a45.07,45.07,0,0,0-1.87,11.95c-.21,10.62,3.49,25.26,23.24,32.3h0c19.71,7,31.84-1.93,38.41-10.27a45,45,0,0,0,6.13-10.46c.12-.3.18-.47.18-.47l-65.93-23.53S7002.87,7537.77,7002.77,7538.08Z" transform="translate(-6157.5 -6702.5)"/>
-
-            <path class="cls-3" d="M7306.87,7367.13l60.82,170.47-65.93,23.53-60.82-170.48a35,35,0,0,1,21.2-44.73h0A35,35,0,0,1,7306.87,7367.13Z" transform="translate(-6157.5 -6702.5)"/>
-            <path class="cls-4" d="M7367.85,7538.08a45.07,45.07,0,0,1,1.87,11.95c.21,10.62-3.49,25.26-23.24,32.3h0c-19.71,7-31.84-1.93-38.41-10.27a45,45,0,0,1-6.13-10.46c-.12-.3-.18-.47-.18-.47l65.93-23.53S7367.75,7537.77,7367.85,7538.08Z" transform="translate(-6157.5 -6702.5)"/>
-        </g>
-        <g id="oreilles">
-            <g id="oreille-d">
-                <path class="cls-3" d="M7296.12,6866s32.54-80.85-4.46-104.85-46.71,66.95-46.71,66.95S7292.58,6850.8,7296.12,6866Z" transform="translate(-6157.5 -6702.5)"/>
-                <path class="cls-4" d="M7290.18,6849s22.67-56.32-3.11-73-32.54,46.64-32.54,46.64S7287.71,6838.4,7290.18,6849Z" transform="translate(-6157.5 -6702.5)"/>
-            </g>
-            <g id="oreille-g">
-                <path class="cls-3" d="M7084,6866.35s-32.54-80.85,4.46-104.85,46.71,66.95,46.71,66.95S7087.58,6851.2,7084,6866.35Z" transform="translate(-6157.5 -6702.5)"/>
-                <path class="cls-4" d="M7090,6849.35s-22.67-56.32,3.1-73,32.54,46.64,32.54,46.64S7092.45,6838.8,7090,6849.35Z" transform="translate(-6157.5 -6702.5)"/>
-            </g>
-        </g>
-        <g id="visage">
-            <path id="Tete" class="cls-3" d="M7077.5,6961.5c0,85.6,51.59,131,114,131s112-45.4,112-131,13-138-113-138S7077.5,6875.9,7077.5,6961.5Z" transform="translate(-6157.5 -6702.5)"/>
-            <g id="yeux">
-                <circle class="cls-5" cx="1137" cy="212" r="37"/>
-                <circle cx="1137" cy="212" r="19.3"/>
-                <circle class="cls-5" cx="928" cy="213" r="37"/>
-                <circle cx="928" cy="213" r="19.3"/>
-            </g>
-            <path id="separator" class="cls-6" d="M7086,7017c59-45.89,148.67-45.89,209,0" transform="translate(-6157.5 -6702.5)"/>
-            <path id="criniere" class="cls-4" d="M7262.5,6885.5c.76-15-3.92-27.53-17.55-36.15h17.55c-8.9-13.38-15.29-32.58-32-32.85l5-20c-49-8-78.87,8-100.29,42-12.36,24,8.15,42.83,39.29,60l-1.85-22.58s19.73,8.12,40.79,4.35S7262.5,6885.5,7262.5,6885.5Z" transform="translate(-6157.5 -6702.5)"/>
-            <g id="nez">
-                <ellipse id="nez2" cx="1043.5" cy="311" rx="3.5" ry="12"/>
-                <ellipse id="nez1" cx="1021.5" cy="311" rx="3.5" ry="12"/>
-            </g>
-            <path id="langue" class="cls-4" d="M7215.5,7069.5c0,25.13-11,45.5-24.5,45.5s-24.5-20.37-24.5-45.5Z" transform="translate(-6157.5 -6702.5)"/>
-        </g>
-        <path id="Corne" class="cls-7" d="M7149.5,6847.5h0c27,19,58.12,16.22,90,0h0l-20.79-126.18c-.81-8.27-12.2-9.85-15.23-2.11Z" transform="translate(-6157.5 -6702.5)"/>
-    </g>
-</svg>
-
+    </svg>
+</div>
 <script>
     function majTemps(){
         var heureSysteme= new Date();
